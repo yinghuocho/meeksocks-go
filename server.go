@@ -426,7 +426,7 @@ func savePid(filename string) {
 		return
 	}
 
-	f, err := os.OpenFile(filename, os.O_CREATE|os.O_WRONLY, 0600)
+	f, err := os.OpenFile(filename, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0600)
 	defer f.Close()
 	if err != nil {
 		log.Printf("error opening pid file: %s", err)
